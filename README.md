@@ -16,6 +16,40 @@ and ordinary Linux system libraries; it does not need Python, PyTorch, a GPU,
 Ollama or a network connection. Python is used only by optional setup, testing
 and training utilities.
 
+## Benchmark results
+
+Locally measured results for the released EC models and an external reference:
+
+| Model | Quant | ALFA-updated /300 | Pass rate | Internal /1320 |
+|---|---|---:|---:|---:|
+| [EC 1.5B A3](https://huggingface.co/dirac-run/ec-1.5b-gguf) | Q4_K_M | **212/300** | **70.67%** | **1119/1320** |
+| [whatisit / nl2sh-1.5b](https://huggingface.co/ThorOdinson246/nl2sh-1.5b-Q4_K_M) | Q4_K_M | 191/300 | 63.67% | 82/1320 |
+| [EC 0.6B A1](https://huggingface.co/dirac-run/ec-0.6b-gguf) | Q8_0 | 174/300 | 58.00% | 922/1320 |
+| [EC 0.6B A1](https://huggingface.co/dirac-run/ec-0.6b-gguf) | Q4_K_M | 165/300 | 55.00% | 911/1320 |
+
+These use [ALFA-updated](https://github.com/dirac-run/ALFA-updated), with
+documented environment and correctness repairs. They are separate from published
+original-ALFA scores. Benchmark errors remain in the 300-task denominator:
+one for each EC Q4 run, two for EC Q8, and five for whatisit.
+
+**Internal suite breakdown:** ordinary commands 244, quoting 256, exact operands
+512, time predicates 84, text-processing transfer 160, and English wording 64.
+Quoting, operands and English contribute **832/1320 (63.0%)** closely related
+literal-search/output-mode stress tests. Cases share templates, and these panels
+guided EC development; the total is not broad shell accuracy on 1,320 independent
+unseen tasks. The whatisit internal result retains one observer error as a failure.
+
+The comparison keeps each model's serving profile: EC uses COMMAND JSON and a
+256-token limit; whatisit uses its native plain-command prompt and a 64-token
+limit. This compares deployed configurations with the same graders, rather than
+holding inference settings constant. No fresh full-suite result is assigned to
+the merged BF16 exports.
+
+See [per-panel results and methodology](docs/RESULTS.md),
+[machine-readable measurements](docs/results.json), and
+[the research story](PROJECT_POST_DRAFT.md) for controls, historical comparisons,
+and limitations.
+
 ## Build and install
 
 Requirements: Linux, Bash, a C/C++ compiler, CMake 3.20+, and network access for
