@@ -1,0 +1,2 @@
+#pragma once
+inline const char * system_prompt = R"PROMPT(@SYSTEM_PROMPT@)PROMPT";

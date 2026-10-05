@@ -1,0 +1,4 @@
+#pragma once
+inline constexpr int runtime_context = @RUNTIME_CONTEXT@;
+inline constexpr int runtime_output_limit = @RUNTIME_OUTPUT_LIMIT@;
+inline constexpr int runtime_threads = @RUNTIME_THREADS@;

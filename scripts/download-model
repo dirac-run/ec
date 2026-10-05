@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+"""Download a GGUF from an explicit URL and verify its supplied checksum."""
+import argparse
+import hashlib
+import os
+from pathlib import Path
+import urllib.request
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('url')
+    parser.add_argument('--sha256', required=True)
+    parser.add_argument('--output', type=Path,
+        default=Path(os.environ.get('XDG_DATA_HOME', str(Path.home() / '.local/share'))) / 'easycommand/model.gguf')
+    args = parser.parse_args()
+    if not args.url.startswith('https://') or len(args.sha256) != 64 or any(c not in '0123456789abcdef' for c in args.sha256):
+        parser.error('supply an HTTPS URL and a lowercase SHA256 checksum')
+    if os.path.lexists(args.output):
+        parser.error('output already exists; choose a new path')
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    pending = args.output.with_suffix('.gguf.download')
+    target = pending.open('xb')
+    try:
+        with target, urllib.request.urlopen(args.url, timeout=60) as source:
+            checksum = hashlib.sha256()
+            while block := source.read(1024 * 1024):
+                target.write(block)
+                checksum.update(block)
+        if checksum.hexdigest() != args.sha256:
+            raise RuntimeError('download checksum mismatch')
+        pending.replace(args.output)
+    finally:
+        pending.unlink(missing_ok=True)
+    print(args.output)
+
+
+if __name__ == '__main__':
+    main()

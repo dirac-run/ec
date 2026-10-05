@@ -1,0 +1,11 @@
+.env
+.env.*
+.venv/
+build/
+__pycache__/
+*.pyc
+*.gguf
+*.safetensors
+*.pt
+*.log
+logs/

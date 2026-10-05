@@ -1,0 +1,241 @@
+{
+  "schema": 1,
+  "measured_utc": "2026-10-05",
+  "benchmark": "ALFA-updated",
+  "alfa_definition_sha256": "6f50e4fea37c125f73f93e5f785e95e91fda448b4bf347a9a2986db4d83b48dc",
+  "internal_cases": 1320,
+  "development_measurements": true,
+  "merged_BF16_fresh_full_suite_measured": false,
+  "release_models": [
+    {
+      "model_repository": "https://huggingface.co/dirac-run/ec-0.6b-gguf",
+      "file": "ec-0.6b.Q4_K_M.gguf",
+      "quantization": "Q4_K_M",
+      "bytes": 484219552,
+      "sha256": "614925fb3df0e457ff74dfc52e8f5b86bb5aeeb6213f71de6cb2e2decfabc025",
+      "alfa": {
+        "passed": 165,
+        "cases": 300,
+        "benchmark_errors": 1,
+        "source_summary_sha256": "26120af924cb31d51cacb74be46f2c520c62ae84a283e14d710ebbf30c68e425"
+      },
+      "internal": {
+        "passed": 911,
+        "cases": 1320,
+        "panels": {
+          "main244": {
+            "passed": 217,
+            "cases": 244,
+            "benchmark_errors": 0,
+            "source_summary_sha256": "157abb754b27106f2944813d0ea837d6327c5aa098f5c6491eca96b10686b0d7"
+          },
+          "quotes256": {
+            "passed": 202,
+            "cases": 256,
+            "benchmark_errors": 0,
+            "source_summary_sha256": "020285ef5d97ea8627c8210c3ca833fd78714d878b3eb6e8a394c3e8371dfe86"
+          },
+          "operands512": {
+            "passed": 284,
+            "cases": 512,
+            "benchmark_errors": 0,
+            "source_summary_sha256": "35bc5a54ad1ebabad474684fc16a1dd1fbca0be629e3e2eaad2aa73aa8844163"
+          },
+          "time84": {
+            "passed": 72,
+            "cases": 84,
+            "benchmark_errors": 0,
+            "source_summary_sha256": "e756f643fe5c39f3726047fe68a73ff255881b6c96ac6aa71114c9364288a01f"
+          },
+          "transfer160": {
+            "passed": 72,
+            "cases": 160,
+            "benchmark_errors": 0,
+            "source_summary_sha256": "18cca4d00b70d401d610b52e03e7f5af13a0b8a8e479a4f07c81bfffa4bde0f3"
+          },
+          "English64": {
+            "passed": 64,
+            "cases": 64,
+            "benchmark_errors": 0,
+            "source_summary_sha256": "13d5cd1fb8003418aea1a9a56fc9a5101a5ee1dcefe59853a2315daffde543c7"
+          }
+        }
+      },
+      "quantization_recipe": "FP32 original base+actual new adapter -> F16 GGUF -> Q4_K_M; default mixed; no imatrix/requantization"
+    },
+    {
+      "model_repository": "https://huggingface.co/dirac-run/ec-0.6b-gguf",
+      "file": "ec-0.6b.Q8_0.gguf",
+      "quantization": "Q8_0",
+      "bytes": 804753056,
+      "sha256": "53313a7de4162d7cb8e223ddfd8f2d380a36b00ad7a2899d858a420e718f3e2f",
+      "alfa": {
+        "passed": 174,
+        "cases": 300,
+        "benchmark_errors": 2,
+        "source_summary_sha256": "6226d47ab657e2f057bc89c275de659dc623e39fcba80e33e5a09b27cefed554"
+      },
+      "internal": {
+        "passed": 922,
+        "cases": 1320,
+        "panels": {
+          "main244": {
+            "passed": 219,
+            "cases": 244,
+            "benchmark_errors": 0,
+            "source_summary_sha256": "a74e43b990a4f5c176b817a1f8f4f44a17852dea05cf0253d09aa3b7416c6fd5"
+          },
+          "quotes256": {
+            "passed": 217,
+            "cases": 256,
+            "benchmark_errors": 0,
+            "source_summary_sha256": "b48b0b250637d40ca01fcec114e0ae05c5a744c9e097b1f6c523815d1a56161c"
+          },
+          "operands512": {
+            "passed": 272,
+            "cases": 512,
+            "benchmark_errors": 0,
+            "source_summary_sha256": "52c293e716b02abe169cdf60b0f642b4aaa0fbe9295d41872d149e07b8bb6f68"
+          },
+          "time84": {
+            "passed": 73,
+            "cases": 84,
+            "benchmark_errors": 0,
+            "source_summary_sha256": "10b592f3b82a8abbcfaeacc28bb7a7dee6e9293287cb0e34dc2b6370224da794"
+          },
+          "transfer160": {
+            "passed": 77,
+            "cases": 160,
+            "benchmark_errors": 0,
+            "source_summary_sha256": "7879e59b9fe7a925d54d5b0643fa42e2d6fe33ca0d90b2c7064ec5a7bc18e52c"
+          },
+          "English64": {
+            "passed": 64,
+            "cases": 64,
+            "benchmark_errors": 0,
+            "source_summary_sha256": "8f557f97a4ed1affc7fe17f12db51372c15b5cef9fb33a54618b5daca0b2b2b4"
+          }
+        }
+      },
+      "quantization_recipe": "Same FP32 base+adapter merge and F16 bytes as Q4; direct Q8_0, no requantization/imatrix"
+    },
+    {
+      "model_repository": "https://huggingface.co/dirac-run/ec-1.5b-gguf",
+      "file": "ec-1.5b.Q4_K_M.gguf",
+      "quantization": "Q4_K_M",
+      "bytes": 986047872,
+      "sha256": "135c8ec1a7ad6c24ba25971ee01cb3659130676031e45d876bd1822185c9e044",
+      "alfa": {
+        "passed": 212,
+        "cases": 300,
+        "benchmark_errors": 1,
+        "source_summary_sha256": "42343a755045c34e1112f5bda51f924ce4ab733474b007082a130b2c5164aecf"
+      },
+      "internal": {
+        "passed": 1119,
+        "cases": 1320,
+        "panels": {
+          "main244": {
+            "passed": 232,
+            "cases": 244,
+            "benchmark_errors": 0,
+            "source_summary_sha256": "a74ac2ea39e3c6a680a9e52d7055a67f23c5cb7294ed4106cbb3aee1e3c726c6"
+          },
+          "quotes256": {
+            "passed": 237,
+            "cases": 256,
+            "benchmark_errors": 0,
+            "source_summary_sha256": "8ad4c704cfd8099b27ec2de49b1cef22f56fc6fbeab36393d4c26e3a447b5da7"
+          },
+          "operands512": {
+            "passed": 417,
+            "cases": 512,
+            "benchmark_errors": 0,
+            "source_summary_sha256": "185b22d171f2861e6ded18020896e4ceab6be76db19ac48ec8377a73b5b1fdb9"
+          },
+          "time84": {
+            "passed": 80,
+            "cases": 84,
+            "benchmark_errors": 0,
+            "source_summary_sha256": "46f8f6df4dbdbb9cc18f7c98f9c44a32fc5eaa9b62fc4d53e699b581988df678"
+          },
+          "transfer160": {
+            "passed": 89,
+            "cases": 160,
+            "benchmark_errors": 0,
+            "source_summary_sha256": "c99149b4fc2952bd3547be431f6176fa42aaba16aa8f3819b910e008b76a5d0a"
+          },
+          "English64": {
+            "passed": 64,
+            "cases": 64,
+            "benchmark_errors": 0,
+            "source_summary_sha256": "31a9cd058368732aebcff43f88a8288733a22d01c731032d6d0a9fd13583352b"
+          }
+        }
+      },
+      "quantization_recipe": "FP32 original base+actual new adapter -> F16 GGUF -> Q4_K_M; default mixed; no imatrix/requantization"
+    }
+  ],
+  "external_comparison": {
+    "model_repository": "https://huggingface.co/ThorOdinson246/nl2sh-1.5b-Q4_K_M",
+    "model_sha256": "6f8a17a11129a31074c944f4c2602453fafd9de43bdaeb1630a8f511ec820f71",
+    "alfa": {
+      "passed": 191,
+      "cases": 300,
+      "benchmark_errors": 5
+    },
+    "internal": {
+      "passed": 82,
+      "cases": 1320,
+      "benchmark_errors": 1,
+      "panels": {
+        "main244": {
+          "passed": 80,
+          "cases": 244,
+          "benchmark_errors": 0
+        },
+        "quotes256": {
+          "passed": 0,
+          "cases": 256,
+          "benchmark_errors": 0
+        },
+        "operands512": {
+          "passed": 0,
+          "cases": 512,
+          "benchmark_errors": 0
+        },
+        "time84": {
+          "passed": 2,
+          "cases": 84,
+          "benchmark_errors": 1
+        },
+        "English64": {
+          "passed": 0,
+          "cases": 64,
+          "benchmark_errors": 0
+        },
+        "transfer160": {
+          "passed": 0,
+          "cases": 160,
+          "benchmark_errors": 0
+        }
+      }
+    },
+    "serving_profile": {
+      "system": "You are a shell command generator. Output exactly one line: a single POSIX/bash command that accomplishes the user's request. No prose, no markdown fences, no explanation.",
+      "temperature": 0,
+      "max_tokens": 64,
+      "repeat_penalty": 1.08,
+      "repeat_last_n": 64,
+      "stop": [
+        "\n",
+        "<|im_end|>",
+        "```"
+      ],
+      "host_context": false
+    },
+    "matched_EC_serving_profile": false,
+    "all_current_panels_regraded": true
+  },
+  "scope": "Correlated development stress tests; not 1320 independent unseen tasks."
+}

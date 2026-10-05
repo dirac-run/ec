@@ -1,0 +1,5 @@
+{
+  "context": 2048,
+  "output_limit": 256,
+  "threads": 8
+}
