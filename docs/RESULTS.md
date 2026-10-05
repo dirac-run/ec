@@ -77,7 +77,12 @@ include incorrect quoting, altered or omitted operands, wrong flags and
 incomplete operations.
 
 The internal panels deliberately stress exact literal arguments and modifiers.
-Quoting and operands alone account for 768/1320 rows. EC development repeatedly
+Quoting256, operands512 and English64 together account for **832/1320 (63.0%)**
+closely related literal-search/output-mode cases. English64 tests wording of
+those contracts, not general English understanding. Transfer160 covers ten
+text-processing families, contrasting source-file contents with Bash runtime
+output. Time84 covers older/recent minute/hour/day predicates and print/sort/delete
+actions. Main244 is the broader ordinary-command panel. EC development repeatedly
 consulted these correlated panels. The total is evidence on those contracts,
 not a general shell-competence percentage or an independent comparison of
 training quality. The [project post](../PROJECT_POST_DRAFT.md) separately lists

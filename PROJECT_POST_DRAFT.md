@@ -61,17 +61,17 @@ Our tests increasingly used isolated filesystem and process fixtures. A command 
 
 The later internal suite had six panels:
 
-| Panel | Cases | Main purpose |
-|---|---:|---|
-| Main command benchmark | 244 | Ordinary shell behavior under its existing admission and fixture rules |
-| Quoted literals | 256 | Quoting and special-character handling |
-| Exact operands | 512 | Preserve filenames, paths, and search text |
-| Time operations | 84 | Temporal predicates and units |
-| Transfer | 160 | Related generalization probes |
-| English wording | 64 | Two wording frames across 32 operand contracts |
-| **Total** | **1,320** | Development and retention evidence |
+| Panel | Cases | Share | Main purpose |
+|---|---:|---:|---|
+| Main command benchmark | 244 | 18.5% | Ordinary shell behavior under its existing admission and fixture rules |
+| Quoted literals | 256 | 19.4% | Literal text search with spaces, apostrophes, double quotes, and mixed quoting |
+| Exact operands | 512 | 38.8% | Preserve filenames and search bytes; distinguish selected lines, counts, filenames, and matched text |
+| Time operations | 84 | 6.4% | Older/recent age predicates in minutes, hours, and days; printing, sorting, and deletion |
+| Transfer | 160 | 12.1% | Ten text-processing families, distinguishing reading source text from processing a program's Bash output |
+| English wording | 64 | 4.8% | Two wording frames across 32 literal-search/output-mode contracts |
+| **Total** | **1,320** | **100%** | Development and retention evidence |
 
-This total is a count of benchmark rows, not 1,320 independent unseen tasks. Many examples share templates, and we consulted these panels repeatedly. The exact-operand panel contributes 38.8% of the pooled score, so we also examined individual panels and, later, an equal-weight panel average.
+This total is a count of benchmark rows, not 1,320 independent unseen tasks. Many examples share templates, and we consulted these panels repeatedly. **832 cases (63.0%) are related literal-search, quoting, operand, and wording stress tests** across the quoted-literal, exact-operand, and English panels. The English panel tests phrasing of those contracts, not general English understanding. The exact-operand panel alone contributes 38.8% of the pooled score, so we also examined individual panels and, later, an equal-weight panel average. Percentages above are rounded.
 
 We added fresh confirmation panels for selected candidates. One late find-focused comparison used 120 requests spanning 20 families and three layouts, opened only after the winner was frozen. Its result was sobering: the benchmark winner scored 28/120 versus its parent's 27, with 18 gains and 17 losses. There was little evidence of a broad breakthrough.
 
@@ -269,7 +269,7 @@ We also completed its full current internal suite: **82/1320**, comprising 80 ma
 | EC 0.6B A1 Q4_K_M | 165 | 217 | 202 | 284 | 72 | 72 | 64 | 911 |
 | whatisit / nl2sh-1.5b Q4_K_M | 191 | 80 | 0 | 0 | 2 | 0 | 0 | 82 |
 
-The large internal gap needs context. These are correlated development panels emphasizing literal operands, quoting, and specific output contracts; we repeatedly used them to guide EC training. They are not a general shell-competence ranking. We checked that native plaintext was admitted without EC's JSON/category requirements: the failures included split space-bearing filenames, missing directories or operands, wrong flags, and incomplete behavior. The native 64-token cap caused additional failures. The complete result is useful evidence about those deployed configurations on these particular contracts, while independent tests and matched inference would support stronger comparisons.
+The large internal gap needs context. These are correlated development panels emphasizing literal operands, quoting, and specific output contracts, with the 832-case concentration described above; we repeatedly used them to guide EC training. They are not a general shell-competence ranking. We checked that native plaintext was admitted without EC's JSON/category requirements: the failures included split space-bearing filenames, missing directories or operands, wrong flags, and incomplete behavior. The native 64-token cap caused additional failures. The complete result is useful evidence about those deployed configurations on these particular contracts, while independent tests and matched inference would support stronger comparisons.
 
 For context, the original whatisit sources and related model cards report the following **original-ALFA** results. These are author-reported measurements using different protocols, not rows that we rescored with ALFA-updated:
 
