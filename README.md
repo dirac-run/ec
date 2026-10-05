@@ -50,6 +50,31 @@ See [per-panel results and methodology](docs/RESULTS.md),
 [the research story](PROJECT_POST_DRAFT.md) for controls, historical comparisons,
 and limitations.
 
+### Published original-ALFA results (different protocol)
+
+These externally reported results provide context. **They are not directly
+comparable with our ALFA-updated measurements.** Sources checked on 5 October 2026.
+
+| Model/configuration | Reported download size | Original-ALFA pass rate | Source |
+|---|---:|---:|---|
+| GPT-4o, cloud API (published reference) | — | 73.0% | [whatisit benchmarks](https://github.com/ThorOdinson246/whatisit-nl2sh#benchmarks) |
+| nl2sh-3b Q4_K_M | 1.9 GB | 65.7% | [whatisit benchmarks](https://github.com/ThorOdinson246/whatisit-nl2sh#benchmarks) |
+| Community nl2sh-qwen25-coder-1.5b Q4_K_M | 941 MB | 65.67% | [Community model card](https://huggingface.co/barbarabhb/nl2sh-qwen25-coder-1.5b-GGUF) |
+| whatisit / nl2sh-1.5b Q4_K_M | 941 MB | 62.0% | [whatisit benchmarks](https://github.com/ThorOdinson246/whatisit-nl2sh#benchmarks) |
+| Qwen2.5-Coder-7B, untuned | 4.4 GB | 61.3% | [whatisit benchmarks](https://github.com/ThorOdinson246/whatisit-nl2sh#benchmarks) |
+| Qwen2.5-Coder-1.5B, untuned | 941 MB | 54.0% | [whatisit benchmarks](https://github.com/ThorOdinson246/whatisit-nl2sh#benchmarks) |
+
+The local-model sources report 300 tasks, temperature 0, a 64-token output cap,
+and the unmodified upstream scorer with embedding threshold 0.75. GPT-4o's
+73.0% is the benchmark paper's published reference, not a run by us or a
+measurement under that local serving profile. Sizes retain the authors' units
+and rounding; the untuned rows' quantization is not specified in the source table.
+
+The [community author also remeasured whatisit at **59.0%**](https://huggingface.co/barbarabhb/nl2sh-qwen25-coder-1.5b-GGUF)
+on their own rig, versus its upstream published **62.0%**. Both are external
+original-ALFA measurements, distinct from our **191/300 (63.67%) ALFA-updated**
+result. No EC-versus-external ranking across these two grading protocols is implied.
+
 ## Build and install
 
 Requirements: Linux, Bash, a C/C++ compiler, CMake 3.20+, and network access for
