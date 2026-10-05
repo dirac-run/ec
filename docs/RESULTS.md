@@ -88,6 +88,11 @@ not a general shell-competence percentage or an independent comparison of
 training quality. The [project post](../PROJECT_POST_DRAFT.md) separately lists
 author-reported original-ALFA references; do not merge the two scoring protocols.
 
+A separate diagnostic passed 12/12 known-correct plaintext controls through the
+same native adapter and frozen graders. A 14-request model replay reproduced
+ten saved outputs; four changed answers remained incorrect. Historical wire
+logs were not retained, so full deterministic regeneration is not claimed.
+
 ## What worked, and what did not
 
 - Simpler prompts and command-only behavior helped some checkpoints. Output

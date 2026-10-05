@@ -271,6 +271,8 @@ We also completed its full current internal suite: **82/1320**, comprising 80 ma
 
 The large internal gap needs context. These are correlated development panels emphasizing literal operands, quoting, and specific output contracts, with the 832-case concentration described above; we repeatedly used them to guide EC training. They are not a general shell-competence ranking. We checked that native plaintext was admitted without EC's JSON/category requirements: the failures included split space-bearing filenames, missing directories or operands, wrong flags, and incomplete behavior. The native 64-token cap caused additional failures. The complete result is useful evidence about those deployed configurations on these particular contracts, while independent tests and matched inference would support stronger comparisons.
 
+A separate diagnostic passed all 12 known-correct plaintext controls through the same adapter and frozen graders. Replaying 14 requests with the original model/runtime reproduced ten saved outputs; the four changed answers still failed their contracts. Original September wire logs were not retained, so we do not claim a fully deterministic regeneration of the historical predictions. The 82 total is the complete regrading of the saved/new output packet described above.
+
 For context, the original whatisit sources and related model cards report the following **original-ALFA** results. These are author-reported measurements using different protocols, not rows that we rescored with ALFA-updated:
 
 | Published model/configuration | Reported download size | Original-ALFA pass rate | Source |
